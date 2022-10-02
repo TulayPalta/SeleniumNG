@@ -17,7 +17,7 @@ public class C02_NegatifTest {
         Driver.getDriver().get(ConfigReader.getProperty("hmcUrl"));
         HmcPage hmcPage = new HmcPage();
         //login butonuna bas
-        hmcPage.login.click();
+        hmcPage.loginButton.click();
         //test data username: manager1 ,  test data password : manager1!
         hmcPage.userName.sendKeys(ConfigReader.getProperty("hmcWrongUser"));
         Actions actions = new Actions(Driver.getDriver());
