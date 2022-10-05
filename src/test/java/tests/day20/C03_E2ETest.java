@@ -14,6 +14,7 @@ public class C03_E2ETest {
     public void E2ETest() throws InterruptedException {
         //https://www.hotelmycamp.com adresine git.
         Driver.getDriver().get(ConfigReader.getProperty("hmcUrl"));
+
         HmcPage hmcPage = new HmcPage();
         hmcPage.login.click();
         //Username textbox ve password metin kutularını locate edin ve asagidaki verileri
@@ -24,12 +25,14 @@ public class C03_E2ETest {
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.TAB).sendKeys(ConfigReader.getProperty("password")).
                 sendKeys(Keys.ENTER).perform();
+
         //Hotel Management/Room reservation menusunden ADD ROOM RESERVATION butonuna tiklayin
         hmcPage.hotelManagement.click();
         Thread.sleep(2000);
         hmcPage.roomReservation.click();
         Thread.sleep(2000);
         hmcPage.addRoom.click();
+
         //Açılan sayfadaki tüm metin kutularına istediğiniz verileri girin.
         //Save butonuna tıklayın.
         Faker faker = new Faker();
@@ -43,6 +46,7 @@ public class C03_E2ETest {
                 .sendKeys(faker.internet().emailAddress()).sendKeys(Keys.TAB).sendKeys("skajdlaksjdaasd")
                 .sendKeys(Keys.TAB).sendKeys(Keys.SPACE).sendKeys(Keys.TAB).sendKeys(Keys.TAB)
                 .sendKeys(Keys.ENTER).perform();
+
         //“RoomReservation was inserted successfully” textinin göründüğünü test edin.
         Thread.sleep(3000);
         Assert.assertTrue(hmcPage.roomReservationText.isDisplayed());

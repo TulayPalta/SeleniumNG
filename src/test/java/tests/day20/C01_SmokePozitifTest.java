@@ -13,6 +13,7 @@ public class C01_SmokePozitifTest {
     public void pozitifTest() {
         //https://www.hotelmycamp.com/ adresine git  login butonuna bas
         Driver.getDriver().get(ConfigReader.getProperty("hmcUrl"));
+
         HmcPage hmcPage = new HmcPage();
         /*Page class'ındaki locate'lerimize ulaşabilmek için
         Page classımızdan bir obje oluşturarak, oluşturmuş olduğumuz obje ile
